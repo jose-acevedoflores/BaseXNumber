@@ -89,13 +89,16 @@ public class BaseXNumberTest {
 		BaseXNumber numberOct = new BaseXNumber("octal", "17620");
 		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "33af");
 		
+		BaseXNumber numberBinary2 = new BaseXNumber("binary", "11001010");
 		
 		assertTrue(
 				
 				numberBinary.toDecimal().equals("910") &&
 				numberDecimal.toDecimal().equals("222") &&
 				numberOct.toDecimal().equals("8080") &&
-				numberHex.toDecimal().equals("13231")
+				numberHex.toDecimal().equals("13231") &&
+				
+				numberBinary2.toDecimal().equals("202")
 				
 				);	
 		
@@ -115,6 +118,49 @@ public class BaseXNumberTest {
 				numberDecimal.toHexadecimal().equals("de") &&
 				numberOct.toHexadecimal().equals("f648") &&
 				numberHex.toHexadecimal().equals("5ff")
+				
+				);
+		
+	}
+	
+	@Test
+	public void testIsPrime()
+	{
+		BaseXNumber numberBinary = new BaseXNumber("binary", "1010101011");
+		BaseXNumber numberDecimal= new BaseXNumber("decimal", "22522");
+		BaseXNumber numberOct = new BaseXNumber("octal", "17000");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "11d1");
+		
+		BaseXNumber numberBinary2 = new BaseXNumber("binary", "11001010");
+		
+		assertTrue(
+				
+				numberBinary.isPrime() == true &&
+				numberDecimal.isPrime() == false &&
+				numberOct.isPrime() == false &&
+				numberHex.isPrime() == true &&
+				
+				numberBinary2.isPrime() == false
+				
+				);
+		
+	}
+	
+	
+	@Test
+	public void testIsPowerOfTwo()
+	{
+		BaseXNumber numberBinary = new BaseXNumber("binary", "100000000");
+		BaseXNumber numberDecimal= new BaseXNumber("decimal", "282321");
+		BaseXNumber numberOct = new BaseXNumber("octal", "4000000");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "4000");
+		
+		assertTrue(
+				
+				numberBinary.isPowerOfTwo() == true &&
+				numberDecimal.isPowerOfTwo() == false &&
+				numberOct.isPowerOfTwo() == true &&
+				numberHex.isPowerOfTwo() == true
 				
 				);
 		
