@@ -111,6 +111,26 @@ public class BaseXNumber {
 	}
 	
 	/** 
+	 * Method 3
+	 * @author-Wesley O. Martinez Camacho 
+	 * 
+	 * A method that calculated the greatest common divisor between the first number and a new input number. 
+	 * @param number the number that is going to be used to look for the GCD
+	 * @return the greatest common divisor between the numbers 
+	 */
+	public int getGCD(int number) 
+	{ 
+	  int gcd = 0; 
+	  
+	  for (int i = 1; i< numberDecimal; i++)
+	  { 
+		  if (numberDecimal % i ==0 && number % i ==0)
+			  gcd=i; 
+	  }
+	  return gcd; 
+	}
+	
+	/** 
 	 * Method 4
 	 * @author-Wesley O. Martinez Camacho
 	 * 
