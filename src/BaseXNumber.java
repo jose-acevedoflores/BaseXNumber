@@ -118,11 +118,13 @@ public class BaseXNumber {
 	 * @param number the number that is going to be used to look for the GCD
 	 * @return the greatest common divisor between the numbers 
 	 */
-	public int getGCD(int number) 
+	public int getGCD(long number) 
 	{ 
-	  int gcd = 0; 
+	  int gcd = 0;
 	  
-	  for (int i = 1; i< numberDecimal; i++)
+	  long minNumber = Math.min(number, numberDecimal);
+	  
+	  for (int i = 1; i<= minNumber; i++)
 	  { 
 		  if (numberDecimal % i ==0 && number % i ==0)
 			  gcd=i; 
@@ -140,9 +142,15 @@ public class BaseXNumber {
 	 * @param number the number that the user wants to verifies if its co-prime
 	 * @return if both numbers are coprime 
 	 */
-	public boolean isCoPrime(int number)
+	public boolean isCoPrime(long number)
 	{ 
-		boolean prime = false;
+		if(this.getGCD(number) == 1)
+		{
+			return true;
+		}
+		else 
+			return false;
+		/*boolean prime = false;
 		boolean coprime = false; 
 		
 		for (int i = 2; i < number; i++)
@@ -164,7 +172,8 @@ public class BaseXNumber {
 		else if (isPrime()==false && prime == false)
 			coprime = false;
 		
-		return coprime; 
+		return coprime;
+		*/ 
 	}
 	
 	
