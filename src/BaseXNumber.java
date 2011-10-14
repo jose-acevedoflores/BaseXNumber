@@ -192,10 +192,10 @@ public class BaseXNumber {
 	{ 
 	   int repeats = 0; 
 	   
-	   for (int i = 0 ; i<originalNumber.length(); i++)
+	   for (int i = 0 ; i < originalNumber.length() ; i++)
 	   { 
-		  if (originalNumber.substring(i,i+1).equals(digit))
-			  repeats ++;
+		  if (originalNumber.substring(i, i+1).equals(digit))
+			  repeats++;
 	   }
 	  
 	   return repeats;
@@ -341,9 +341,9 @@ public class BaseXNumber {
 	 * A method that calculates the sum of all the odd numbers up to the  the user input number 
 	 * @return the sum of all odd numbers. 
 	 */
-	public int getSumofOddNumbers()
+	public long getSumofOddNumbers()
 	{ 
-	  int sum = 0; 
+	  long sum = 0; 
 	  
 	  for (int i = 0; i < numberDecimal; i++)
 	  { 
@@ -361,9 +361,9 @@ public class BaseXNumber {
 	 * A method that calculates the sum of all the even numbers up to the user input number.
 	 * @return the sum of all even numbers.
 	 */
-	public int getSumofEvenNumbers()
+	public long getSumofEvenNumbers()
 	{ 
-	  int sum = 0; 
+	  long sum = 0; 
 	  
 	  for (int i = 0; i < numberDecimal; i++)
 	  { 
@@ -372,6 +372,7 @@ public class BaseXNumber {
 	  }
 	  return sum; 	
 	}
+	
 	
 	
 	/**
@@ -383,6 +384,10 @@ public class BaseXNumber {
 		return numberDecimal;
 	}
 	
+	/*
+	 * From here on the methods are private. This is to convert the number the user gave as in input 
+	 * and save it's decimal representation for all the methods.
+	 */
 	
 	/**
 	 * Convert the number form binary to decimal. Private because it's for the internal representation.

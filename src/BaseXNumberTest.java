@@ -107,6 +107,24 @@ public class BaseXNumberTest {
 		
 	}
 	
+	@Test
+	public void testGetTimeItRepeats()
+	{
+		BaseXNumber numberBinary = new BaseXNumber("binary", "10000011110");
+		BaseXNumber numberDecimal= new BaseXNumber("decimal", "6111");
+		BaseXNumber numberOct = new BaseXNumber("octal", "31213");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "eee");
+		
+		assertTrue(
+				
+				numberBinary.getTimesitRepeats("1") == 5 &&
+				numberDecimal.getTimesitRepeats("6") == 1 &&
+				numberOct.getTimesitRepeats("4") == 0 &&
+				numberHex.getTimesitRepeats("e") == 3 
+				
+				);
+	}
+	
 
 	@Test
 	public void testToBinary()
@@ -210,7 +228,44 @@ public class BaseXNumberTest {
 				);
 	}
 	
+	@Test
+	public void testGetSumOfOddNumbers()
+	{
 
+		BaseXNumber numberBinary = new BaseXNumber("binary", "11100");
+		BaseXNumber numberDecimal= new BaseXNumber("decimal", "17");
+		BaseXNumber numberOct = new BaseXNumber("octal", "16");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "31");
+		
+		assertTrue(
+				
+				numberBinary.getSumofOddNumbers() == 196 &&
+				numberDecimal.getSumofOddNumbers() == 64 &&
+				numberOct.getSumofOddNumbers() == 49  &&
+				numberHex.getSumofOddNumbers() == 576
+				
+				);
+		
+	}
+	
+	@Test
+	public void testGetSumOfEvenNumbers()
+	{
+		BaseXNumber numberBinary = new BaseXNumber("binary", "1110");
+		BaseXNumber numberDecimal= new BaseXNumber("decimal", "20");
+		BaseXNumber numberOct = new BaseXNumber("octal", "13");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "23");
+		
+		assertTrue(
+				
+				numberBinary.getSumofEvenNumbers() == 42 &&
+				numberDecimal.getSumofEvenNumbers() == 90 &&
+				numberOct.getSumofEvenNumbers() == 30 &&
+				numberHex.getSumofEvenNumbers() == 306
+				
+				
+				);
+	}
 	
 
 }
