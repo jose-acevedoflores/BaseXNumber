@@ -267,5 +267,23 @@ public class BaseXNumberTest {
 				);
 	}
 	
+	@Test
+	public void testInvalidInputs()
+	{
+
+		BaseXNumber numberBinary = new BaseXNumber("binary", "1120");
+		BaseXNumber numberDecimal= new BaseXNumber("decimal", "239a");
+		BaseXNumber numberOct = new BaseXNumber("octal", "1802");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "23");
+		
+		assertTrue(
+				
+				numberBinary.getNumberDecimal() == -1 &&
+				numberDecimal.getNumberDecimal() == -1 &&
+				numberOct.getNumberDecimal() ==-1 
+				
+				);
+	}
+	
 
 }

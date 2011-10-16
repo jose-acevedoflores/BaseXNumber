@@ -18,7 +18,6 @@ public class BaseXRunner {
 		String option = null;
 		BaseXNumber baseNumber=null;
 
-
 		while(!(input.equals("Q")))
 		{
 			System.out.println("Select a base: \n1.Binary \n2.Octal \n3.Decimal \n4.Hexadecimal");

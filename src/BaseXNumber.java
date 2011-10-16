@@ -49,7 +49,7 @@ public class BaseXNumber {
 		else if(base.equalsIgnoreCase("decimal"))
 		{
 			decimal = true;
-			numberDecimal = Long.parseLong(originalNumber);
+			numberDecimal = this.validDecimalToDecimal();
 		}
 	}
 	
@@ -395,19 +395,30 @@ public class BaseXNumber {
 	 */
 	private long binaryToDecimal()
 	{
-		long result=0;
-		
-		int counter=0;
-		for(int i = originalNumber.length()-1; i >= 0  ; i--)
+		int flag = 0;
+		for(int u = 0 ; u < originalNumber.length(); u++)// Checking for illegal characters.
 		{
-			if(originalNumber.charAt(i)== '1')
-			{
-				result +=  Math.pow(2, counter);
-			}
-			counter++;
+			if(!(originalNumber.charAt(u)=='0') && !(originalNumber.charAt(u)=='1'))
+				flag=1;
 		}
 		
-		return result;
+		if( flag==1 )
+			return -1;
+		
+		else // Converting the number from binary to decimal
+		{
+			long result=0;
+			int counter=0;
+			for(int i = originalNumber.length()-1; i >= 0  ; i--)
+			{
+				if(originalNumber.charAt(i)== '1')
+				{
+					result +=  Math.pow(2, counter);
+				}
+				counter++;
+			}
+			return result;
+		}
 	}
 	
 	
@@ -417,10 +428,23 @@ public class BaseXNumber {
 	 */
 	private long octalToDecimal()
 	{
+		int flag = 1;
+		char[] octal = {'0','1','2','3','4','5','6','7'};
+		for(int u = 0 ; u < originalNumber.length(); u++)
+		{
+			flag =1;
+			for(int i = 0 ; i < octal.length; i++)
+			{
+				if(originalNumber.charAt(u) == octal[i] )
+					flag = 0;
+			}
+			if(flag==1)
+				return -1;
+			
+		}
+	
 		long result=0;
 		long number;
-		char[] octal = {'0','1','2','3','4','5','6','7'};
-		
 		int u;
 		int counter=0;
 		for(int i = originalNumber.length()-1; i >= 0  ; i--)
@@ -431,8 +455,9 @@ public class BaseXNumber {
 			result += number*Math.pow(8, counter);
 			counter++;
 		}
-		
+
 		return result;
+		
 	}
 	
 	
@@ -457,6 +482,32 @@ public class BaseXNumber {
 			counter++;
 		}
 	
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @return -1 if illegal character is found, the real number otherwise.
+	 */
+	private long validDecimalToDecimal()
+	{
+		long result = 0;
+		int flag;
+		char[] validInput = {'0','1','2','3','4','5','6','7','8','9'};
+		
+		for(int u = 0; u < originalNumber.length() ; u++)
+		{
+			flag=1;
+			for(int i = 0; i< validInput.length; i++)
+			{
+				if(originalNumber.charAt(u) == validInput[i])
+					flag = 0;
+			}
+			if(flag == 1)
+				return -1;
+		}
+		
+		result = Long.parseLong(originalNumber);
 		return result;
 	}
 	
