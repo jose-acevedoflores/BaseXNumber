@@ -65,7 +65,7 @@ public class BaseXRunner {
 			*/
 			if(!validInput | baseXNum.getNumberDecimal() == -1)
 			{
-				if(validInput)
+				if(validInput) // If validInput is true then we got here because of the invalid number.
 					System.out.println("Invalid number for the given base.");
 				continue;
 			}
