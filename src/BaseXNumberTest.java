@@ -155,7 +155,7 @@ public class BaseXNumberTest {
 		BaseXNumber numberBinary = new BaseXNumber("binary", "111001010");
 		BaseXNumber numberDecimal= new BaseXNumber("decimal", "601");
 		BaseXNumber numberOct = new BaseXNumber("octal", "1131");
-		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "ff3a");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "ff3A");
 		
 		assertTrue(
 				
@@ -174,7 +174,7 @@ public class BaseXNumberTest {
 		BaseXNumber numberBinary = new BaseXNumber("binary", "1110001110");
 		BaseXNumber numberDecimal= new BaseXNumber("decimal", "222");
 		BaseXNumber numberOct = new BaseXNumber("octal", "17620");
-		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "33af");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "33AF");
 		
 		BaseXNumber numberBinary2 = new BaseXNumber("binary", "11001010");
 		
@@ -197,7 +197,7 @@ public class BaseXNumberTest {
 		BaseXNumber numberBinary = new BaseXNumber("binary", "1110101011");
 		BaseXNumber numberDecimal= new BaseXNumber("decimal", "222");
 		BaseXNumber numberOct = new BaseXNumber("octal", "173110");
-		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "5ff");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "5fF");
 		
 		assertTrue(
 				
@@ -274,13 +274,14 @@ public class BaseXNumberTest {
 		BaseXNumber numberBinary = new BaseXNumber("binary", "1120");
 		BaseXNumber numberDecimal= new BaseXNumber("decimal", "239a");
 		BaseXNumber numberOct = new BaseXNumber("octal", "1802");
-		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "23");
+		BaseXNumber numberHex = new BaseXNumber("hexadecimal", "1aT2");
 		
 		assertTrue(
 				
 				numberBinary.getNumberDecimal() == -1 &&
 				numberDecimal.getNumberDecimal() == -1 &&
-				numberOct.getNumberDecimal() ==-1 
+				numberOct.getNumberDecimal() ==-1  &&
+				numberHex.getNumberDecimal() == -1
 				
 				);
 	}

@@ -25,7 +25,7 @@ public class BaseXNumber {
 	 */
 	public BaseXNumber(String base, String number)
 	{
-		originalNumber = number;
+		originalNumber = number.toLowerCase();
 		
 		
 		if(base.equalsIgnoreCase("hexadecimal"))
@@ -150,34 +150,7 @@ public class BaseXNumber {
 		}
 		else 
 			return false;
-		/*boolean prime = false;
-		boolean coprime = false; 
-		
-		for (int i = 2; i < number; i++)
-		{ 
-		 
-		 if (number%i == 0)
-		 { 
-			prime = false; 
-			break; 
-		 }
-		 
-		 else if (number%i != 0)
-			 prime = true; 
-		}
-		
-		if (isPrime()==true && prime == true)
-			coprime = true; 
-		
-		else if (isPrime()==false && prime == false)
-			coprime = false;
-		
-		return coprime;
-		*/ 
 	}
-	
-	
-	
 	
 	
 	/** 
@@ -428,7 +401,7 @@ public class BaseXNumber {
 	 */
 	private long octalToDecimal()
 	{
-		int flag = 1;
+		int flag;
 		char[] octal = {'0','1','2','3','4','5','6','7'};
 		for(int u = 0 ; u < originalNumber.length(); u++)
 		{
@@ -440,7 +413,6 @@ public class BaseXNumber {
 			}
 			if(flag==1)
 				return -1;
-			
 		}
 	
 		long result=0;
@@ -467,17 +439,30 @@ public class BaseXNumber {
 	 */
 	private long hexadecimalToDecimal()
 	{
-		long result=0;
-		long number;
+		int flag;
 		char[] hex = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
 		
+		for(int u = 0 ; u < originalNumber.length(); u++)
+		{
+			flag =1;
+			for(int i = 0 ; i < hex.length; i++)
+			{
+				if(originalNumber.charAt(u) == hex[i] )
+					flag = 0;
+			}
+			if(flag==1)
+				return -1;
+		}
+		
+		long result=0;
+		long number;
 		int u;
 		int counter=0;
 		for(int i = originalNumber.length()-1; i >= 0  ; i--)
 		{
 			for(u =0; originalNumber.charAt(i) != hex[u]; u++)
-			{}//Loops through the hex array. The index represents the decimal representation. 
-			number = u;  
+			{}			//Loops through the hex array until a match is found,
+			number = u; // then the index represents the decimal representation.  
 			result += number*Math.pow(16, counter);
 			counter++;
 		}
@@ -486,12 +471,12 @@ public class BaseXNumber {
 	}
 	
 	/**
-	 * 
+	 * Checks if the user input is correct for a decimal number. Example: no letters and symbols.
 	 * @return -1 if illegal character is found, the real number otherwise.
 	 */
 	private long validDecimalToDecimal()
 	{
-		long result = 0;
+		
 		int flag;
 		char[] validInput = {'0','1','2','3','4','5','6','7','8','9'};
 		
@@ -507,8 +492,7 @@ public class BaseXNumber {
 				return -1;
 		}
 		
-		result = Long.parseLong(originalNumber);
-		return result;
+		return Long.parseLong(originalNumber);
 	}
 	
 
