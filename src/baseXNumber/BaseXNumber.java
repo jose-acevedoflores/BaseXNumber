@@ -12,7 +12,7 @@ public class BaseXNumber {
 	private String originalNumber;
 	private boolean binary=false;
 	private boolean hexadecimal=false;
-	private boolean decimal=false;
+	//private boolean decimal=false;
 	private boolean octal=false;
 	
 	
@@ -48,7 +48,7 @@ public class BaseXNumber {
 		
 		else if(base.equalsIgnoreCase("decimal"))
 		{
-			decimal = true;
+		//	decimal = true;
 			numberDecimal = this.validDecimalToDecimal();
 		}
 	}
